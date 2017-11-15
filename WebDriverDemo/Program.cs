@@ -16,6 +16,9 @@ namespace WebDriverDemo
         {
             IWebDriver driver = new ChromeDriver();
             driver.Url = "http://www.google.com";
+
+            var searchBox = driver.FindElement(By.Id("lst-ib"));
+            searchBox.SendKeys("pluralsight");
         }
     }
 }
