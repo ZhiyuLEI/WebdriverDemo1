@@ -15,10 +15,10 @@ namespace WebDriverDemo
         static void Main(string[] args)
         {
             IWebDriver driver = new ChromeDriver();
-            driver.Url = "http://www.google.com";
+            driver.Url = @"file:///E:/Massey%20Semester%202/Industry_Connect_Tester_Programme/Automation_Scripts/WebDriverDemo/WebDriverDemo/TestPage.html";
 
-            var searchBox = driver.FindElement(By.Id("lst-ib"));
-            searchBox.SendKeys("pluralsight");
+            var radioButton = driver.FindElements(By.Name("color"))[1];
+            radioButton.Click();
         }
     }
 }
