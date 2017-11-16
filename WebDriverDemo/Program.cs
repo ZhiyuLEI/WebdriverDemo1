@@ -15,7 +15,8 @@ namespace WebDriverDemo
     {
         static void Main(string[] args)
         {
-            IWebDriver driver = new ChromeDriver();
+            IWebDriver driver = new ChromeDriver();            
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10); //Implicit Wait
             driver.Url = @"file:///E:/Massey%20Semester%202/Industry_Connect_Tester_Programme/Automation_Scripts/WebDriverDemo/WebDriverDemo/TestPage.html";
 
             var radioButtons = driver.FindElements(By.Name("color"));
@@ -26,13 +27,15 @@ namespace WebDriverDemo
                     Console.WriteLine(radioButton.GetAttribute("value"));
                 }
             }
-
+                      
             var checkBox = driver.FindElement(By.Id("check1"));
             checkBox.Click();
 
+                   
             var select = driver.FindElement(By.Id("select1"));
             var tomOption = select.FindElements(By.TagName("option"))[2];
             tomOption.Click();
+
 
             var select2 = driver.FindElement(By.Id("select2"));
             var selectElement = new SelectElement(select2);
@@ -45,6 +48,8 @@ namespace WebDriverDemo
 
             var row2 = driver.FindElement(By.XPath("/html/body/table/tbody/tr/td[2]/table/tbody/tr[2]/td"));
             Console.WriteLine(row2.Text);
+
+            
         }
     }
 }
