@@ -25,6 +25,9 @@ namespace WebDriverDemo
                     Console.WriteLine(radioButton.GetAttribute("value"));
                 }
             }
+
+            var checkBox = driver.FindElement(By.Id("check1"));
+            checkBox.Click();
         }
     }
 }
