@@ -28,6 +28,10 @@ namespace WebDriverDemo
 
             var checkBox = driver.FindElement(By.Id("check1"));
             checkBox.Click();
+
+            var select = driver.FindElement(By.Id("select1"));
+            var tomOption = select.FindElements(By.TagName("option"))[2];
+            tomOption.Click();
         }
     }
 }
