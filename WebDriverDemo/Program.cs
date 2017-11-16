@@ -42,6 +42,9 @@ namespace WebDriverDemo
             var innerTable = outerTable.FindElement(By.TagName("table"));
             var row = innerTable.FindElements(By.TagName("td"))[1];
             Console.WriteLine(row.Text);
+
+            var row2 = driver.FindElement(By.XPath("/html/body/table/tbody/tr/td[2]/table/tbody/tr[2]/td"));
+            Console.WriteLine(row2.Text);
         }
     }
 }
