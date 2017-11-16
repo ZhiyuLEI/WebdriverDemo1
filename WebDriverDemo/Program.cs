@@ -17,8 +17,14 @@ namespace WebDriverDemo
             IWebDriver driver = new ChromeDriver();
             driver.Url = @"file:///E:/Massey%20Semester%202/Industry_Connect_Tester_Programme/Automation_Scripts/WebDriverDemo/WebDriverDemo/TestPage.html";
 
-            var radioButton = driver.FindElements(By.Name("color"))[1];
-            radioButton.Click();
+            var radioButtons = driver.FindElements(By.Name("color"));
+            foreach (var radioButton in radioButtons)
+            {
+                if (radioButton.Selected)
+                {
+                    Console.WriteLine(radioButton.GetAttribute("value"));
+                }
+            }
         }
     }
 }
