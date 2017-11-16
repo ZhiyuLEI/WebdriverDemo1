@@ -2,6 +2,7 @@
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,6 +33,10 @@ namespace WebDriverDemo
             var select = driver.FindElement(By.Id("select1"));
             var tomOption = select.FindElements(By.TagName("option"))[2];
             tomOption.Click();
+
+            var select2 = driver.FindElement(By.Id("select2"));
+            var selectElement = new SelectElement(select2);
+            selectElement.SelectByText("Frank");
         }
     }
 }
