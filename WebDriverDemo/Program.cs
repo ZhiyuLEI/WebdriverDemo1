@@ -37,6 +37,11 @@ namespace WebDriverDemo
             var select2 = driver.FindElement(By.Id("select2"));
             var selectElement = new SelectElement(select2);
             selectElement.SelectByText("Frank");
+
+            var outerTable = driver.FindElement(By.TagName("table"));
+            var innerTable = outerTable.FindElement(By.TagName("table"));
+            var row = innerTable.FindElements(By.TagName("td"))[1];
+            Console.WriteLine(row.Text);
         }
     }
 }
