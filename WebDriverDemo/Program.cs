@@ -18,7 +18,7 @@ namespace WebDriverDemo
             IWebDriver driver = new ChromeDriver();            
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10); //Implicit Wait
             driver.Url = @"file:///E:/Massey%20Semester%202/Industry_Connect_Tester_Programme/Automation_Scripts/WebDriverDemo/WebDriverDemo/TestPage.html";
-
+            
             var radioButtons = driver.FindElements(By.Name("color"));
             foreach (var radioButton in radioButtons)
             {
@@ -27,16 +27,16 @@ namespace WebDriverDemo
                     Console.WriteLine(radioButton.GetAttribute("value"));
                 }
             }
-                      
-            var checkBox = driver.FindElement(By.Id("check1"));
-            checkBox.Click();
+
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10)); //Explicit Wait                      
+            var dynamicCheckBox = wait.Until(d => d.FindElement(By.Id("check1"))); //Used Explicit Wait for a fake dynamic IWebElement            
+            dynamicCheckBox.Click();
 
                    
             var select = driver.FindElement(By.Id("select1"));
             var tomOption = select.FindElements(By.TagName("option"))[2];
             tomOption.Click();
-
-
+                      
             var select2 = driver.FindElement(By.Id("select2"));
             var selectElement = new SelectElement(select2);
             selectElement.SelectByText("Frank");
